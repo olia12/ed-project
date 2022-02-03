@@ -27,5 +27,5 @@ let servicePrice1 = prompt("Сколько это будет стоить?");
 console.log(servicePrice1);
 let service2 = prompt("Какой дополнительный тип услуги нужен?");
 console.log(service2);
-let servicePrice2 = prompt("Сколько это будет стоить?");
+let servicePrice2 = prompt("Сколько это будет стоить ?");
 console.log(servicePrice2);
