@@ -19,7 +19,7 @@ screens = prompt("Какие типы экранов нужно разработ
 console.log(screens);
 screenPrice = prompt("Сколько будет стоить данная работа?");
 console.log(screenPrice);
-adaptive = prompt("Нужен ли адаптив на сайте?");
+adaptive = confirm("Нужен ли адаптив на сайте?");
 console.log(adaptive);
 let service1 = prompt("Какой дополнительный тип услуги нужен?");
 console.log(service1);
