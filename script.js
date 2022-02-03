@@ -32,3 +32,6 @@ console.log(servicePrice2);
 
 fullPrice = Number(screenPrice) + Number(servicePrice1) + Number(servicePrice2);
 console.log(fullPrice);
+
+let servicePercentPrice = Math.ceil(fullPrice - rollback);
+console.log(servicePercentPrice);
