@@ -1,40 +1,16 @@
-"use strict";
-let title = "ed-project";
-let screens = "Простые, Сложные, Интерактивные";
-let screenPrice = 100;
-let rollback = 6;
-let fullPrice = 20000;
-let adaptive = true;
+'use strict';
 
-console.log(title, fullPrice, adaptive);
-console.log(screens.length);
-console.log("Стоимость верстки экранов " + screenPrice + " рублей");
-console.log("Стоимость разработки сайта " + fullPrice + " рублей");
-console.log(screens.toLowerCase().split(", "));
-console.log(fullPrice * (rollback / 100));
-
-title = prompt("Как называется ваш проект?");
-console.log(title);
-screens = prompt("Какие типы экранов нужно разработать?");
-console.log(screens);
-screenPrice = prompt("Сколько будет стоить данная работа?");
-console.log(screenPrice);
-adaptive = confirm("Нужен ли адаптив на сайте?");
-console.log(adaptive);
+let title = prompt("Как называется ваш проект?");
+let screens = prompt("Какие типы экранов нужно разработать?");
+let screenPrice = +prompt("Сколько будет стоить данная работа?");
+let adaptive = confirm("Нужен ли адаптив на сайте?");
 let service1 = prompt("Какой дополнительный тип услуги нужен?");
-console.log(service1);
-let servicePrice1 = prompt("Сколько это будет стоить?");
-console.log(servicePrice1);
+let servicePrice1 = +prompt("Сколько это будет стоить?");
 let service2 = prompt("Какой дополнительный тип услуги нужен?");
-console.log(service2);
 let servicePrice2 = prompt("Сколько это будет стоить?");
-console.log(servicePrice2);
-
-fullPrice = Number(screenPrice) + Number(servicePrice1) + Number(servicePrice2);
-console.log(fullPrice);
-
-let servicePercentPrice = Math.ceil(fullPrice - rollback);
-console.log(servicePercentPrice);
+let rollback = 6;
+let fullPrice = screenPrice + servicePrice1 + servicePrice2;
+let servicePercentPrice = Math.ceil(fullPrice - (fullPrice * (rollback / 100)));
 
 switch (true) {
   case fullPrice >= 30000:
@@ -50,3 +26,11 @@ switch (true) {
     console.log("Что то пошло не так");
     break;
 }
+
+console.log(title, fullPrice, adaptive);
+console.log(screens.length);
+console.log("Стоимость верстки экранов " + screenPrice + " рублей");
+console.log("Стоимость разработки сайта " + fullPrice + " рублей");
+console.log(screens.toLowerCase().split(", "));
+console.log(fullPrice * (rollback / 100));
+
