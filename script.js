@@ -14,10 +14,18 @@ let servicePercentPrice = Math.ceil(fullPrice - (fullPrice * (rollback / 100)));
 let allServicePrices;
 
 // function expression
-const getAllServicePrices = function(sp1, sp2) {
-  return sp1+sp2;
+const getAllServicePrices = function(servicePrice1, servicePrice2) {
+  return servicePrice1 + servicePrice2;
 };
+
 allServicePrices = getAllServicePrices(servicePrice1, servicePrice2);
+
+// function declaration
+function getFullPrice(screenPrice, allServicePrices) {
+  return screenPrice + allServicePrices;
+}
+
+fullPrice = getFullPrice(screenPrice, allServicePrices);
 
 switch (true) {
   case fullPrice >= 30000:
