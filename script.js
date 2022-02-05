@@ -1,6 +1,6 @@
 'use strict';
 
-let title = prompt("Как называется ваш проект?");
+let title = prompt("Как называется ваш проект?", " калькУлятор верстки");
 let screens = prompt("Какие типы экранов нужно разработать?");
 let screenPrice = +prompt("Сколько будет стоить данная работа?");
 let adaptive = confirm("Нужен ли адаптив на сайте?");
@@ -26,6 +26,12 @@ function getFullPrice(screenPrice, allServicePrices) {
 }
 
 fullPrice = getFullPrice(screenPrice, allServicePrices);
+
+const getTitle = function(title) {
+    title = title.trimStart();
+    return title.charAt(0).toUpperCase() + title.substring(1).toLowerCase();
+};
+console.log(getTitle(title));
 
 switch (true) {
   case fullPrice >= 30000:
