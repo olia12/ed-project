@@ -61,7 +61,6 @@ console.log(screens.toLowerCase().split(", "));
 
 console.log(getRollbackMessage(fullPrice));
 
-getServicePercentPrices(fullPrice, servicePercentPrice);
-
+console.log(getServicePercentPrices(fullPrice, servicePercentPrice));
 
 
