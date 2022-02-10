@@ -15,13 +15,24 @@ const isNumber = function (num) {
     return !isNaN(parseFloat(num)) && isFinite(num);
 };
 
+// const asking = function() {
+//     title = prompt("Как называется ваш проект?", "Калькулятор верстки");
+//     screens = prompt("Какие типы экранов нужно разработать?", "Простые, Сложные");
+//     do {
+//         screenPrice = prompt("Сколько будет стоить данная работа?", "12000");
+//     }
+//     while (!isNumber(screenPrice)); 
+    
+//     adaptive = confirm("Нужен ли адаптив на сайте?");
+// };
+
 const asking = function() {
     title = prompt("Как называется ваш проект?", "Калькулятор верстки");
     screens = prompt("Какие типы экранов нужно разработать?", "Простые, Сложные");
     do {
-        screenPrice = prompt("Сколько будет стоить данная работа?", "12000");
+        screenPrice = +prompt("Сколько будет стоить данная работа?", "12000");
     }
-    while (!isNumber(screenPrice)); 
+    while (!isNumber(screenPrice) || screenPrice === 0); 
     
     adaptive = confirm("Нужен ли адаптив на сайте?");
 };
@@ -86,16 +97,19 @@ servicePercentPrice = getServicePercentPrices();
 
 showTypeOf(title);
 showTypeOf(screenPrice);
+
 showTypeOf(adaptive); 
 showTypeOf(fullPrice); 
 showTypeOf(servicePercentPrice);
 showTypeOf(allServicePrices);
 
+getRollbackMessage(fullPrice);
 
+console.log(screenPrice.toString().length);
 console.log('allServicePrices ' + allServicePrices);
 console.log('fullPrice ' + fullPrice);
 console.log(screens.toLowerCase().split(", "));
-console.log(getRollbackMessage(fullPrice));
 console.log('servicePercentPrice ' + servicePercentPrice);
+
 
 
