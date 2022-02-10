@@ -4,7 +4,7 @@ let title;
 let screens;
 let screenPrice;
 let adaptive;
-let rollback = 6;
+let rollback = 10;
 let fullPrice;
 let allServicePrices;
 let service1;
@@ -18,9 +18,8 @@ const isNumber = function (num) {
 const asking = function() {
     title = prompt("Как называется ваш проект?", "Калькулятор верстки");
     screens = prompt("Какие типы экранов нужно разработать?", "Простые, Сложные");
-    //screenPrice = prompt("Сколько будет стоить данная работа?");
     do {
-        screenPrice = prompt("Сколько будет стоить данная работа?");
+        screenPrice = prompt("Сколько будет стоить данная работа?", "12000");
     }
     while (!isNumber(screenPrice)); 
     
@@ -32,13 +31,17 @@ const getAllServicePrices = function() {
     let sum = 0;
 
     for (let i = 0; i < 2; i++) {
-
+        let cost;
         if (i === 0) {
-            service1 = prompt("Какой дополнительный тип услуги нужен?");
+            service1 = prompt("Какой дополнительный тип услуги нужен?", "Метрика");
         } else if (i === 1) {
-            service2 = prompt("Какой дополнительный тип услуги нужен?");
+            service2 = prompt("Какой дополнительный тип услуги нужен?", "Метрика");
         }
-        sum += +prompt("Сколько это будет стоить?");
+        do{
+            cost = prompt("Сколько это будет стоить?", "1000");
+        }
+        while(!isNumber(cost));   
+        sum += +cost;
     }
 
     return sum;
@@ -46,7 +49,7 @@ const getAllServicePrices = function() {
 
 // function declaration
 function getFullPrice() {
-    return screenPrice + allServicePrices;
+    return Number(screenPrice) + Number(allServicePrices);
 }
 
 const getTitle = function() {
@@ -76,18 +79,23 @@ const getRollbackMessage = function(price) {
 };
 
 asking();
-allServicePrices = getAllServicePrices();
+title = getTitle();
+allServicePrices = getAllServicePrices(); 
 fullPrice = getFullPrice();
 servicePercentPrice = getServicePercentPrices();
-title = getTitle();
 
 showTypeOf(title);
 showTypeOf(screenPrice);
-showTypeOf(adaptive);
+showTypeOf(adaptive); 
+showTypeOf(fullPrice); 
+showTypeOf(servicePercentPrice);
+showTypeOf(allServicePrices);
+
 
 console.log('allServicePrices ' + allServicePrices);
+console.log('fullPrice ' + fullPrice);
 console.log(screens.toLowerCase().split(", "));
 console.log(getRollbackMessage(fullPrice));
-console.log(servicePercentPrice);
+console.log('servicePercentPrice ' + servicePercentPrice);
 
 
