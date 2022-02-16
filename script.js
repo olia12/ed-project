@@ -71,6 +71,11 @@ const appData = {
             return "Что то пошло не так";
     }
     },
+    
+    logger: function() {
+        console.log(appData.fullPrice);
+        console.log(appData.servicePercentPrice);
+    },
 
     start: function() {
         appData.asking();
@@ -79,14 +84,14 @@ const appData = {
         appData.fullPrice = appData.getFullPrice();
         appData.servicePercentPrice = appData.getServicePercentPrices();
         appData.getRollbackMessage(appData.fullPrice);
+        appData.logger();
     }
 
 };
 
 appData.start();
 
-console.log(appData.fullPrice);
-console.log(appData.servicePercentPrice);
+
 
 
 
