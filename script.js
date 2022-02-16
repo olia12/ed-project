@@ -71,10 +71,13 @@ const appData = {
             return "Что то пошло не так";
     }
     },
-    
+
     logger: function() {
         console.log(appData.fullPrice);
         console.log(appData.servicePercentPrice);
+        for (let key in appData) {
+            console.log("Ключ: " + key + " " + "Значение: " + appData[key]);
+        }
     },
 
     start: function() {
@@ -86,7 +89,6 @@ const appData = {
         appData.getRollbackMessage(appData.fullPrice);
         appData.logger();
     }
-
 };
 
 appData.start();
