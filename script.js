@@ -13,8 +13,8 @@ const appData = {
 
     start: function() {
         appData.asking();
+        appData.addPrices();
         appData.getTitle();
-        appData.getAllServicePrices(); 
         appData.getFullPrice();
         appData.getServicePercentPrices();
         appData.getRollbackMessage(appData.fullPrice);
@@ -39,10 +39,6 @@ const appData = {
             appData.screens.push({ id: i, name: name, price: price });
         }
 
-        for (let screen of appData.screens) {
-            appData.screenPrice += +screen.price;
-        }
-
         for (let i = 0; i < 2; i++) {
             let name = prompt("Какой дополнительный тип услуги нужен?", "Метрика");
             let price = 0;
@@ -57,7 +53,10 @@ const appData = {
         appData.adaptive = confirm("Нужен ли адаптив на сайте?");
     },
 
-    getAllServicePrices: function() {
+    addPrices: function() {
+        for (let screen of appData.screens) {
+            appData.screenPrice += +screen.price;
+        }
         for (let key in appData.services) {
             appData.allServicePrices += appData.services[key];
         }
