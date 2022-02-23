@@ -33,13 +33,13 @@ const appData = {
         for (let i = 0; i < 2; i++) {
             let name;
             do {
-                name = prompt("Какие типы экранов нужно разработать?");
+                name = prompt("Какие типы экранов нужно разработать?", "простые");
             }
             while (appData.isNumber(name) || name === "");
 
             let price = 0;
             do {
-                price = prompt("Сколько будет стоить данная работа?");
+                price = prompt("Сколько будет стоить данная работа?", "1000");
             } 
             while (!appData.isNumber(price)); 
 
@@ -49,7 +49,7 @@ const appData = {
         for (let i = 0; i < 2; i++) {
             let name;
             do {
-                name = prompt("Какой дополнительный тип услуги нужен?");
+                name = prompt("Какой дополнительный тип услуги нужен?", "Метрика");
             }
             while (appData.isNumber(name) || name === "");
 
@@ -57,17 +57,22 @@ const appData = {
             do{
                 price = prompt("Сколько это будет стоить?");
             } while(!appData.isNumber(price));
+            
+            appData.services[name + i] = +price;
 
-            appData.services[name] = +price;
         }
 
         appData.adaptive = confirm("Нужен ли адаптив на сайте?");
     },
 
     addPrices: function() {
+        // appData.screenPrice = appData.screens.reduce(function(sum, item) {
+        //     return sum + appData.item.price;
+        // }, 0);
         for (let screen of appData.screens) {
             appData.screenPrice += +screen.price;
         }
+
         for (let key in appData.services) {
             appData.allServicePrices += appData.services[key];
         }
